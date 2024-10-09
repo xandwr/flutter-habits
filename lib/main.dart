@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_habits/models/habit.dart';
+import 'package:flutter_habits/screens/habit_list_screen.dart';
 
 void main() {
   runApp(const MainApp());
@@ -9,11 +11,12 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
+    return MaterialApp(
+      home: HabitListScreen(
+        habits: [
+          Habit(name: "Workout", type: HabitType.good, frequency: HabitFrequency.single, points: 10),
+          Habit(name: "Smoking", type: HabitType.bad, frequency: HabitFrequency.multiple, points: -5),
+        ]
       ),
     );
   }
